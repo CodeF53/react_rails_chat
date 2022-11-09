@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0.4'
 gem 'sqlite3', '~> 1.4'
 # Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
+# Use Redis adapter to run Action Cable in production
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
