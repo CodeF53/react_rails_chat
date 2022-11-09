@@ -6,7 +6,7 @@ import Header from "./elements/Header";
 import Home from "./pages/Home";
 import { LoginSignup } from "./pages/LoginSignup";
 
-function App() {
+function App({ cable }) {
   // persistent user through local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
   useEffect(() => { localStorage.setItem("user", JSON.stringify(user));
