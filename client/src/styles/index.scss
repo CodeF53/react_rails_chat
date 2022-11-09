@@ -1,0 +1,66 @@
+// Assign to parents for changing direction
+.row { display: flex; flex-direction: row; }
+.col { display: flex; flex-direction: column; }
+// Assign to children of row/col to center
+.row.centerChildren > *, .row > .centered { align-self: center; margin: auto 0; }
+.col.centerChildren > *, .col > .centered { align-self: center; margin: 0 auto; }
+// Assign to empty child div to aesthetically fill space
+.spacer { flex:1; }
+
+// Font
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Variables
+:root {
+  --bkg-color: #1c1c1c;
+  --bkg-elev1: #212121;
+  --bkg-elev2: #282828;
+  --bkg-elev3: #2d2d2d;
+  --bkg-elev4: #333333;
+
+  --txt-color: #ffffff;
+}
+.elev1 { background-color: var(--bkg-elev1) }
+.elev2 { background-color: var(--bkg-elev2) }
+.elev3 { background-color: var(--bkg-elev3) }
+.elev4 { background-color: var(--bkg-elev4) }
+
+// Custom component styling
+.labeled_input > label { margin-right: 1rem; }
+.invisible { opacity: 0; cursor: default; }
+.link { color: aqua; text-decoration: underline; }
+.error { color: #F00; }
+.panel {
+  background-color: var(--bkg-elev1);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.237);
+}
+
+// HTML default component styling
+h1, h2, h3, h4, h5, p, button, span, label, ::marker, svg, ul, a, input {
+  margin: 0;
+  text-decoration: none;
+  color: var(--txt-color);
+}
+button, input {
+  border:  none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 100rem;
+  background-color: var(--bkg-elev1);
+}
+button {
+  scale: 0.95;
+  &:hover  { scale: 1 }
+  &:active { scale: 0.95; }
+
+  &:hover, &:active { background-color: var(--bkg-elev2) }
+  &.elev2 { &:hover, &:active { background-color: var(--bkg-elev3) } }
+  &.elev3 { &:hover, &:active { background-color: var(--bkg-elev4) } }
+}

@@ -1,0 +1,13 @@
+// layout
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: var(--bkg-color);
+}
+#app {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 60rem;
+  margin: 0 auto;
+}
