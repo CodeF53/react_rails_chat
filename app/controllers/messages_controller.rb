@@ -8,11 +8,14 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    message = Message.new(message_params)
+    room = Room.find(params[:room_id])
+
+    message = Message.new(text_content: params[:text_content])
     message.user = @current_user
+    message.room = room
     message.save!
 
-    broadcast message.room
+    broadcast room
 
     render json: @message, status: :created
   end
@@ -24,17 +27,12 @@ class MessagesController < ApplicationController
 
   private
 
-  def broadcast(chatroom)
-    ChatroomsChannel.broadcast_to(chatroom,
+  def broadcast(room)
+    RoomsChannel.broadcast_to(room,
     {
-      chatroom: chatroom,
-      users: chatroom.users,
-      messages: chatroom.messages
+      room: room,
+      users: room.users,
+      messages: room.messages
     })
-  end
-
-  # Only allow a list of trusted parameters through.
-  def message_params
-    params.require(:message).permit(:text_content, :room_id)
   end
 end
