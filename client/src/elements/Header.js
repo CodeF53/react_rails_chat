@@ -7,6 +7,10 @@ export default function Header({ user, setUser }) {
 
   return <nav className="row">
     <button><Link to="/">Home</Link></button>
+    {user && <>
+      <button><Link to="/create_room">Create Room</Link></button>
+      <button><Link to="/find_room">Find Room</Link></button>
+    </>}
 
     <Spacer/>
 

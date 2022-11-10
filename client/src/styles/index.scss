@@ -16,21 +16,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Variables
-:root {
-  --bkg-color: #1c1c1c;
-  --bkg-elev1: #212121;
-  --bkg-elev2: #282828;
-  --bkg-elev3: #2d2d2d;
-  --bkg-elev4: #333333;
-
-  --txt-color: #ffffff;
-}
-.elev1 { background-color: var(--bkg-elev1) }
-.elev2 { background-color: var(--bkg-elev2) }
-.elev3 { background-color: var(--bkg-elev3) }
-.elev4 { background-color: var(--bkg-elev4) }
-
 // Custom component styling
 .labeled_input > label { margin-right: 1rem; }
 .invisible { opacity: 0; cursor: default; }
@@ -64,3 +49,18 @@ button {
   &.elev2 { &:hover, &:active { background-color: var(--bkg-elev3) } }
   &.elev3 { &:hover, &:active { background-color: var(--bkg-elev4) } }
 }
+
+// Variables
+:root {
+  --bkg-color: #1c1c1c;
+  --bkg-elev1: #212121;
+  --bkg-elev2: #282828;
+  --bkg-elev3: #2d2d2d;
+  --bkg-elev4: #333333;
+
+  --txt-color: #ffffff;
+}
+.elev1 { background-color: var(--bkg-elev1) }
+.elev2 { background-color: var(--bkg-elev2) }
+.elev3 { background-color: var(--bkg-elev3) }
+.elev4 { background-color: var(--bkg-elev4) }

@@ -1,8 +1,8 @@
 class ChatroomsChannel < ApplicationCable::Channel
   def subscribe
     stop_all_streams
-    chatroom = Chatroom.find(params[:room])
-    stream_for chatroom
+    room = Room.find(params[:room_id])
+    stream_for room
   end
 
   def received

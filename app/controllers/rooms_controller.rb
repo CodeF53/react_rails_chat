@@ -1,6 +1,16 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
-    @users = User.all_except(@current_user)
+    render json: Room.all
+  end
+
+  def create
+    room = Room.create!(room_params)
+    render json: room, status: :created
+  end
+
+  private
+
+  def room_params
+    params.permit(:name)
   end
 end

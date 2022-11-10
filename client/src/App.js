@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Spacer from "./components/Spacer";
+
 import Footer from "./elements/Footer";
 import Header from "./elements/Header";
+
 import Home from "./pages/Home";
+
 import { LoginSignup } from "./pages/LoginSignup";
+import CreateRoom from "./pages/CreateRoom";
+import FindRoom from "./pages/FindRoom";
+
+import Room from "./pages/Room";
+
 
 function App({ cable }) {
   // persistent user through local storage
@@ -22,6 +30,11 @@ function App({ cable }) {
 
     <Routes>
       <Route path="/"  element={<Home/>}/>
+
+      <Route path="/create_room" element={<CreateRoom />}/>
+      <Route path="/find_room"   element={<FindRoom />}/>
+
+      <Route path="/room/:room_id"   element={<Room cable={cable}/>}/>
 
       <Route path="/login"  element={<LoginSignup isLogin={true}  user={user} setUser={setUser} />}/>
       <Route path="/signup" element={<LoginSignup isLogin={false} user={user} setUser={setUser} />}/>

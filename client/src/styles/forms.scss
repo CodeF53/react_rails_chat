@@ -1,0 +1,12 @@
+#login_signup, #create_room, #find_room {
+  gap: 0.25rem;
+  min-width: 15rem;
+}
+
+#find_room {
+  .rooms {
+    gap: 0.25rem;
+
+    .room { padding: 0.5rem 1rem; }
+  }
+}

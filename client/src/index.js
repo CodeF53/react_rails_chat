@@ -7,17 +7,17 @@ import App from './App';
 
 import './styles/index.scss';
 import './styles/layout.scss';
-import './styles/login_signup.scss';
+import './styles/forms.scss';
+import './styles/room.scss';
 
 const cableApp={}
 cableApp.cable=ActionCable.createConsumer("/cable")
-console.log(cableApp)
 
 const root = ReactDOM.createRoot(document.body);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App cable={cableApp} />
+      <App cable={cableApp.cable} />
     </BrowserRouter>
   </React.StrictMode>
 );

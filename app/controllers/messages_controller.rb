@@ -8,9 +8,11 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    message = Message.create!(message_params)
+    message = Message.new(message_params)
+    message.user = @current_user
+    message.save!
 
-    broadcast message.chatroom
+    broadcast message.room
 
     render json: @message, status: :created
   end
@@ -33,6 +35,6 @@ class MessagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def message_params
-    params.require(:message).permit(:text_content, :user_id, :room_id)
+    params.require(:message).permit(:text_content, :room_id)
   end
 end

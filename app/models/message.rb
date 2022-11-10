@@ -2,5 +2,5 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :message_body, presence: :true
+  validates :text_content, presence: true
 end
