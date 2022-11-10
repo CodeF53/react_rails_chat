@@ -3,6 +3,10 @@ class RoomsController < ApplicationController
     render json: Room.all
   end
 
+  def show
+    render json: Room.find(params[:id])
+  end
+
   def create
     room = Room.create!(room_params)
     render json: room, status: :created

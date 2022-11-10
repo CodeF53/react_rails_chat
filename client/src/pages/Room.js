@@ -8,12 +8,16 @@ export default function Room({ cable }) {
 
   const [roomObj, setRoomObj] = useState({})
 
-  useEffect(() => { cable.subscriptions.create(
-    { channel: "RoomsChannel", room_id: room_id },
+  useEffect(() => {
+    // manually fetch the room to get it's initial state
+    fetch(`/rooms/${room_id}`).then(r=>r.json(d=>console.log(d)))
+
+    // subscribe to updates for room
+    cable.subscriptions.create({ channel: "RoomsChannel", room_id: room_id },
     {
       connected: () => console.log("room connected!"),
       disconnected: () => console.log("room disconnected!"),
-      received: (updatedRoom) => console.log("room updated!") // ! never happens despite server console logging the event
+      received: (updatedRoom) => console.log("room updated!")
     }
   )}, [cable, room_id])
 

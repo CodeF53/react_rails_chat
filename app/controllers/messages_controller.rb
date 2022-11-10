@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
 
     broadcast room
 
-    render json: @message, status: :created
+    render json: message, status: :created
   end
 
   # DELETE /messages/1
