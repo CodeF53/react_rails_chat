@@ -1,6 +1,10 @@
 #room {
-  height: calc(100vh - 2rem);
+  max-height: calc(100vh - 2rem);
   gap: 1rem;
-  .messages { gap: 0.5rem; }
+  
+  .messages {
+    overflow-y: scroll;
+    gap: 0.5rem;
+  }
   .chat_container { textarea { flex:1; } }
 }

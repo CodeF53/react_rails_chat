@@ -29,7 +29,7 @@ export default function Room({ cable }) {
 
     <div className="messages panel col spacer">
       <Spacer/>
-      {roomObj.messages.map(message=><Message message={message}/>)}
+      {roomObj.messages.map(message=><Message message={message} key={message.id}/>)}
     </div>
 
     <ChatBox room_id={room_id}/>

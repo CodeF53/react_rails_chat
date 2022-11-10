@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import Spacer from "../components/Spacer"
 import { fetchPost_data } from "../util"
 
-export function LoginSignup({ isLogin, user, setUser }) {
+export default function LoginSignup({ isLogin, user, setUser }) {
   const navigate = useNavigate()
   if (user) navigate("/")
 

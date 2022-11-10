@@ -7,14 +7,13 @@ import Header from "./elements/Header";
 
 import Home from "./pages/Home";
 
-import { LoginSignup } from "./pages/LoginSignup";
+import LoginSignup from "./pages/LoginSignup";
 import CreateRoom from "./pages/CreateRoom";
 import FindRoom from "./pages/FindRoom";
 
 import Room from "./pages/Room";
 
-
-function App({ cable }) {
+export default function App({ cable }) {
   // persistent user through local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
   useEffect(() => { localStorage.setItem("user", JSON.stringify(user));
@@ -45,5 +44,3 @@ function App({ cable }) {
     <Footer/>
   </div>
 }
-
-export default App;
