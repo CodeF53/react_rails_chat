@@ -29,13 +29,14 @@
 }
 
 // HTML default component styling
-h1, h2, h3, h4, h5, p, button, span, label, ::marker, svg, ul, a, input {
+h1, h2, h3, h4, h5, p, button, span, label, ::marker, svg, ul, a, input, textarea {
   margin: 0;
   text-decoration: none;
   color: var(--txt-color);
 }
-button, input {
+button, input, textarea {
   border:  none;
+  resize: none;
   padding: 0.25rem 0.5rem;
   border-radius: 100rem;
   background-color: var(--bkg-elev1);

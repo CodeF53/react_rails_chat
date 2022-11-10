@@ -28,11 +28,6 @@ class MessagesController < ApplicationController
   private
 
   def broadcast(room)
-    RoomsChannel.broadcast_to(room,
-    {
-      room: room,
-      users: room.users,
-      messages: room.messages
-    })
+    RoomsChannel.broadcast_to(room, ActiveModelSerializers::SerializableResource.new(room).as_json)
   end
 end

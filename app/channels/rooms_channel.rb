@@ -6,7 +6,7 @@ class RoomsChannel < ApplicationCable::Channel
   end
 
   def received
-    RoomsChannel.broadcast_to(room, { room: room, users: room.users.uniq, messages: room.messages })
+    RoomsChannel.broadcast_to(room, ActiveModelSerializers::SerializableResource.new(room).as_json)
   end
 
   def unsubscribed
